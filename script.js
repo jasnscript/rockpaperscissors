@@ -62,6 +62,21 @@ function updateText(text) {
     resultsText.textContent = `You ${text}! The score is You: ${playerScore} vs Computer: ${computerScore}`;
 }
 
+function checkScore() {
+    if (playerScore == 5) {
+        updateText('beat the computer');
+        resetScore();
+    } else if (computerScore == 5) {
+        updateText('were beat by the computer');
+        resetScore();
+    }
+}
+
+function resetScore() {
+    playerScore = 0;
+    computerScore = 0;
+}
+
 // Play five games, keeping track of score
 function game() {
         computerPlay();
@@ -81,7 +96,7 @@ function game() {
                 updateText('Tied');
                 break; 
         }
-
+        checkScore();
         /* Best out of 5 mode:
         if (playerScore >= 3) {
             alert("You win the game!");
