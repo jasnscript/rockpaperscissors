@@ -1,0 +1,58 @@
+body {
+    background-color: #fff;
+}
+
+#header {
+    border: 1px solid black;
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+div {
+    border: 1px solid black;
+}
+
+#results {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#results-images {
+    display: flex;
+    justify-content: center;
+}
+
+#playerSelection, #computerSelection {
+    width: 100px;
+    height: 100px;
+    margin: 0 20px;
+}
+
+#results-div {
+    display: flex;
+    justify-content: center;
+    height: 50px; 
+}
+
+#buttons {
+    display: flex;
+    flex-wrap: flex;
+    min-width: 500px;
+    justify-content: center;
+}
+
+.choice {
+    height: 100px;
+    width: 100px;
+    margin: 0 20px 0 20px;
+    border-radius: 20px;
+    border: 0;
+}
+
+.choice:hover {
+    box-shadow: 0 0 2px 2px green;
+}

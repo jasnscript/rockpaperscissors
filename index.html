@@ -3,13 +3,34 @@
     <head>
         <meta charset="UTF-8">
 
-        <title>Rock Paper Scissors</title>
+        <title>Rock Paper Scissors by Jason</title>
 
         <link rel="stylesheet" href="style.css">
-
     </head>
 
     <body>
+        <header id="header">Rock Paper Scissors</header>
+        <main class="main">
+            <div id="results">
+                <div id="results-images">
+                    <div id="playerSelection">
+                        <img src="" alt="player selection">
+                    </div>
+                    <div id="computerSelection">
+                        <img src="" alt="computer selection">
+                    </div>
+                </div>
+                <div id="results-div">
+                    <p id="results-text"></p>
+                </div>
+            </div>
+            
+            <div id="buttons">
+                <button class="choice" id="rock" value="rock">Rock</button>
+                <button class="choice" id="paper" value="paper">Paper</button>
+                <button class="choice" id="scissors" value="scissors">Scissors</button>
+            </div>
+        </main>
         <script src="script.js"></script>
     </body>
 </html>
