@@ -1,58 +1,52 @@
-// Computer randomly picks rock(0), paper(1), or scissors(2)
 let computerSelection;
 let playerSelection;
 let result;
 let computerScore = 0;
 let playerScore = 0;
 
-const rockButton = document.querySelector('#rock');
-const paperButton = document.querySelector('#paper');
-const scissorsButton = document.querySelector('#scissors');
+const buttons = document.querySelectorAll('button');
 
-rockButton.addEventListener('click', game);
-paperButton.addEventListener('click', game);
-scissorsButton.addEventListener('click', game);
+buttons.forEach((button) => {
+    button.addEventListener('click', game);
+});
 
 function computerPlay() {
     let randomNum = Math.floor(Math.random()*3);    // Random number between 0 and 2, inclusive
     // Assign 0 to rock, 1 to paper, 2 to scissors
     switch (randomNum) {
         case 0:
-            computerSelection = "rock";
+            computerSelection = 'rock';
             break;
         case 1:
-            computerSelection = "paper";
+            computerSelection = 'paper';
             break;
         case 2:
-            computerSelection = "scissors";
+            computerSelection = 'scissors';
             break;
     }
     return computerSelection;
 }
 
-// If user selects rock, wins if computer selected scissors, loses if paper, ties if rock
-// If user selects paper, wins if computer selected rock, loses if scissor, ties if paper
-// If user selects scissors, wins if computer selected paper, loses if rock, ties if scissors
 function play(playerSelection, computerSelection) {
     if (playerSelection === computerSelection) {
-        result = "Tie";
-    } else if (playerSelection === "rock") {
-        if (computerSelection === "paper") {
-            result = "Lose";
+        result = 'Tie';
+    } else if (playerSelection === 'rock') {
+        if (computerSelection === 'paper') {
+            result = 'Lose';
         } else {
-            result = "Win";
+            result = 'Win';
         }
-    } else if (playerSelection === "paper") {
-        if (computerSelection === "rock") {
-            result = "Win";
+    } else if (playerSelection === 'paper') {
+        if (computerSelection === 'rock') {
+            result = 'Win';
         } else {
-            result = "Lose";
+            result = 'Lose';
         }
     } else {
-        if (computerSelection === "rock") {
-            result = "Lose";
+        if (computerSelection === 'rock') {
+            result = 'Lose';
         } else {
-            result = "Win";
+            result = 'Win';
         }
     }
     return result;
@@ -77,12 +71,41 @@ function resetScore() {
     computerScore = 0;
 }
 
+function updateImage() {
+    const imgIdPlayer = document.querySelector('#playerChoiceImage');
+    const imgIdComputer = document.querySelector('#computerChoiceImage');
+
+    if (playerSelection == 'rock') {
+        imgIdPlayer.src = '/images/hand-rock.png';
+        imgIdPlayer.setAttribute('style', 'width: 70%; height: 70%');
+    } else if (playerSelection == 'paper') {
+        imgIdPlayer.src = '/images/hand-paper.png';
+        imgIdPlayer.setAttribute('style', 'width: 100%', 'height: 100%');
+    } else {
+        imgIdPlayer.src = '/images/hand-scissors.png';
+        imgIdPlayer.setAttribute('style', 'width: 100%', 'height: 100%');
+    }
+
+    if (computerSelection == 'rock') {
+        imgIdComputer.src = '/images/hand-rock.png';
+        imgIdComputer.setAttribute('style', 'width: 70%; height: 70%');
+    } else if (computerSelection == 'paper') {
+        imgIdComputer.src = '/images/hand-paper.png';
+        imgIdComputer.setAttribute('style', 'width: 100%; height: 100%');
+    } else {
+        imgIdComputer.src = '/images/hand-scissors.png';
+        imgIdComputer.setAttribute('style', 'width: 100%; height: 100%');
+    }
+}
+
 // Play five games, keeping track of score
 function game() {
         computerPlay();
-        // console.log(computerSelection);
         playerSelection = this.value;
+
         play(playerSelection, computerSelection);
+        updateImage();
+
         switch (result) {
             case "Win":
                 ++playerScore;
@@ -97,25 +120,4 @@ function game() {
                 break; 
         }
         checkScore();
-        /* Best out of 5 mode:
-        if (playerScore >= 3) {
-            alert("You win the game!");
-            return;
-        } else if (computerScore >= 3) {
-            alert("You lose the game!");
-            return;
-        }
-        //console.log(playerScore);
-        //console.log(computerScore);
-        */
-    /*
-    if (playerScore > computerScore) {
-        alert(`You win the game! Final score is You ${playerScore} : Computer ${computerScore}.`);
-    } else if (playerScore < computerScore) {
-        alert(`You lose the game. Final score is You ${playerScore} : Computer ${computerScore}.`);
-    } else {
-        alert(`It's a tie! Final score is You ${playerScore} : Computer ${computerScore}.`);
-    }
-    */
 }
-// Report winner at end.

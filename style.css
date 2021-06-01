@@ -26,10 +26,22 @@ div {
     justify-content: center;
 }
 
+#playerChoiceImage, #computerChoiceImage {
+    width: 100%;
+    height: 100%;
+}
+
 #playerSelection, #computerSelection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100px;
     height: 100px;
     margin: 0 20px;
+}
+
+#computerChoiceImage {
+    transform: scaleX(-1);
 }
 
 #results-div {
