@@ -4,8 +4,7 @@ let result;
 let computerScore = 0;
 let playerScore = 0;
 
-const buttons = document.querySelectorAll('button');
-
+const buttons = document.querySelectorAll('.choice');
 buttons.forEach((button) => {
     button.addEventListener('click', game);
 });
@@ -53,7 +52,20 @@ function play(playerSelection, computerSelection) {
 }
 function updateText(text) {
     const resultsText = document.querySelector('#results-text');
-    resultsText.textContent = `You ${text}! The score is You: ${playerScore} vs Computer: ${computerScore}`;
+    const youScoreDisplay = document.querySelector('#you-score');
+    const computerScoreDisplay = document.querySelector('#computer-score');
+    const compare = document.querySelector('#compare');
+    resultsText.textContent = `You ${text}!`;
+    youScoreDisplay.textContent = `${playerScore}`;
+    computerScoreDisplay.textContent = `${computerScore}`;
+
+    if (text == 'Win') {
+        compare.textContent = '>';
+    } else if (text == 'Lose') {
+        compare.textContent = '<';
+    } else {
+        compare.textContent = '=';
+    }
 }
 
 function checkScore() {
@@ -101,7 +113,7 @@ function updateImage() {
 // Play five games, keeping track of score
 function game() {
         computerPlay();
-        playerSelection = this.value;
+        playerSelection = this.id;
 
         play(playerSelection, computerSelection);
         updateImage();
@@ -120,4 +132,28 @@ function game() {
                 break; 
         }
         checkScore();
+}
+
+function startScreen() {
+    document.getElementById('startScreen').style.height = "100%";
+}
+  
+function closeStartScreen() {
+    const close = document.querySelector('.overlay');
+    close.addEventListener('click', () => {
+        document.getElementById("startScreen").style.display = 'none';
+    }); 
+    
+}
+
+let k = 0;
+function introTypewriter() {
+    let introText = 'how about a game of rock, paper, scissors?'
+    let speed = 50;
+    if (k < introText.length) {
+        document.getElementById('welcome-text').textContent += introText.charAt(k);
+        k++;
+        setTimeout(introTypewriter, speed); 
+        setTimeout(closeStartScreen, speed);      
+    }
 }

@@ -9,28 +9,45 @@
     </head>
 
     <body>
-        <header id="header">Rock Paper Scissors</header>
-        <main class="main">
-            <div id="results">
-                <div id="results-images">
-                    <div id="playerSelection">
-                        <img id="playerChoiceImage" src="" alt="player selection">
-                    </div>
-                    <div id="computerSelection">
-                        <img id="computerChoiceImage" src="" alt="computer selection">
-                    </div>
-                </div>
-                <div id="results-div">
-                    <p id="results-text"></p>
+        <!--
+        <div id="startScreen" class="overlay">
+            <div class="overlay-content">
+                <div>
+                    <p id="welcome-text"></p>
                 </div>
             </div>
-            
+        </div>
+    -->
+
+        <main class="main">
+            <div id="scoreboard">
+                <div id="you">You</div>
+                <div id="results">
+                    <div id="you-score">0</div>
+                    <div id="results-images">
+                        
+                        <div id="playerSelection">
+                            <img id="playerChoiceImage" src="http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif">
+                        </div>
+                        <div id="compare"></div>
+                        <div id="computerSelection">
+                            <img id="computerChoiceImage" src="http://upload.wikimedia.org/wikipedia/commons/c/ce/Transparent.gif">
+                        </div>
+                    </div>
+                    <div id="computer-score">0</div>
+                </div>
+                <div id="computer">Computer</div>
+            </div>
+            <div id="results-div">
+                <p id="results-text"></p>
+            </div>
             <div id="buttons">
-                <button class="choice" id="rock" value="rock">Rock</button>
-                <button class="choice" id="paper" value="paper">Paper</button>
-                <button class="choice" id="scissors" value="scissors">Scissors</button>
+                <img class="choice" id="rock" src="images/rock.png">
+                <img class="choice" id="paper" src="images/paper.png">
+                <img class="choice" id="scissors" src="images/scissors.png">
             </div>
         </main>
+        
         <script src="script.js"></script>
     </body>
 </html>

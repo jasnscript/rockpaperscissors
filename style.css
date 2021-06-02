@@ -1,23 +1,68 @@
-body {
-    background-color: #fff;
-}
+@import url('https://fonts.googleapis.com/css?family=Source+Code+Pro');
 
-#header {
-    border: 1px solid black;
+.overlay {
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: opacity 1000ms linear;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-color: rgb(255, 255, 255);
+  }
+  
+  .overlay-content {
+    text-align: center;
+    width: 100%;
+  }
+  
+  #welcome-text {
+      color: rgb(0, 179, 0);
+      font-family: 'Source Code Pro';
+  }
+
+
+
+
+body {
+    background-color: rgb(255, 255, 255);
 }
 
 .main {
     display: flex;
     flex-direction: column;
+    margin-top: 50px;
 }
 
 div {
-    border: 1px solid black;
+    border: 0px solid black;
 }
-
+#scoreboard {
+    display: flex;
+    justify-content: center;
+}
 #results {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#you, #computer {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+#you {
+    justify-content: flex-end;
+}
+
+#you-score, #computer-score {
+    width: 50px;
+    font-size: 50px;
+    display: flex;
+    align-items: center;
     justify-content: center;
 }
 
@@ -37,7 +82,14 @@ div {
     align-items: center;
     width: 100px;
     height: 100px;
-    margin: 0 20px;
+}
+
+#compare {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    font-size: 40px;
 }
 
 #computerChoiceImage {
@@ -48,6 +100,10 @@ div {
     display: flex;
     justify-content: center;
     height: 50px; 
+}
+
+#results-text {
+    color: rgb(0, 0, 0);
 }
 
 #buttons {
@@ -64,7 +120,11 @@ div {
     border-radius: 20px;
     border: 0;
 }
-
 .choice:hover {
-    box-shadow: 0 0 2px 2px green;
+    transform: scale(1.1);
 }
+.choice:active {
+    transform: scale(1);
+}
+
+
